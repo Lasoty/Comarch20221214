@@ -16,13 +16,15 @@ namespace ComarchCwiczenia
         public string Model;
         public float Pojemnosc;
 
+        private string hash;
+
         //Właściwośći (Properties)
         public int LiczbaMiejsc { get; set; }
 
         //Konstruktor
         public Car()
         {
-
+            hash = this.GetHashCode().ToString();
         }
 
         //Metoda
