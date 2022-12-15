@@ -19,18 +19,25 @@ namespace ComarchCwiczenia
                         Sortowanie();
                         break;
                     default:
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Wprowadzona wartość jest poza zakresem.");
-                        Console.ResetColor();
+                        ShowError("Wprowadzona wartość jest poza zakresem.");
                         break;
                 }
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Wprowadzona wartość jest nieprawidłowa.");
-                Console.ResetColor();
+                ShowError("Wprowadzona wartość jest nieprawidłowa.");
             }
+        }
+
+        /// <summary>
+        /// Wyświetl błąd w konsoli.
+        /// </summary>
+        /// <param name="message">Wiadomość do wyświetlenia.</param>
+        private static void ShowError(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
 
         private static void Sortowanie()
