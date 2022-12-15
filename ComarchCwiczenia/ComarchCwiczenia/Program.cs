@@ -47,6 +47,10 @@ namespace ComarchCwiczenia
                         PobierzLiczby(out x, out y);
                         Console.WriteLine($"Wynik reszty z dzielenia {x} oraz {y} to {calc.Modulo(x, y)}");
                         break;
+                    case 7:
+                        CarManager carManager = new CarManager();
+                        carManager.CwiczeniaNaObiektach();
+                        break;
                     default:
                         ShowError("Wprowadzona wartość jest poza zakresem.");
                         break;
@@ -69,6 +73,7 @@ namespace ComarchCwiczenia
             Console.WriteLine(" 4. Mnożenie");
             Console.WriteLine(" 5. Dzielenie");
             Console.WriteLine(" 6. Reszta z dzielenia");
+            Console.WriteLine(" 7. Ćwiczenia z obiektami");
         }
 
         private static void PobierzLiczby(out int x, out int y)
