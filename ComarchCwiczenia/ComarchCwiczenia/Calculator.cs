@@ -12,5 +12,24 @@ namespace ComarchCwiczenia
         {
             return x + y;
         }
+
+        public int Subtract(int x, int y)
+        {
+            return x - y;
+        }
+
+        public int Multiply(int x, int y)
+        {
+            return x * y;
+        }
+        public float Dividy(int x, int y)
+        {
+            return x / (float)y;
+        }
+
+        public float Modulo(int x, int y)
+        {
+            return x % (float)y;
+        }
     }
 }

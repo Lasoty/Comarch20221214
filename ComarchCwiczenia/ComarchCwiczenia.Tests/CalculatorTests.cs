@@ -30,5 +30,65 @@ namespace ComarchCwiczenia.Tests
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod()]
+        public void SubtractShouldReturnValidSubValue()
+        {
+            // Arrange
+            int x = 3, y = 2;
+            int expected = 1;
+            Calculator calculator = new Calculator();
+
+            //Act
+            int actual = calculator.Subtract(x, y);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void MultiplyShouldReturnValidMultipliedValue()
+        {
+            // Arrange
+            int x = 3, y = 2;
+            int expected = 6;
+            Calculator calculator = new Calculator();
+
+            //Act
+            int actual = calculator.Multiply(x, y);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void DividyShouldReturnValidDivisionValue()
+        {
+            // Arrange
+            int x = 4, y = 2;
+            float expected = 2;
+            Calculator calculator = new Calculator();
+
+            //Act
+            float actual = calculator.Dividy(x, y);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod()]
+        public void ModuloShouldReturnValidRemainderOfDivisionValue()
+        {
+            // Arrange
+            int x = 3, y = 2;
+            float expected = 1;
+            Calculator calculator = new Calculator();
+
+            //Act
+            float actual = calculator.Modulo(x, y);
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
