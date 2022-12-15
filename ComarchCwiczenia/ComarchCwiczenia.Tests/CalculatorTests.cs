@@ -77,6 +77,17 @@ namespace ComarchCwiczenia.Tests
         }
 
         [TestMethod()]
+        public void DividyShouldThrowExceptionForZeroParameter()
+        {
+            // Arrange
+            int x = 4, y = 0;
+            Calculator calculator = new Calculator();
+
+            //Act & Assert
+            Assert.ThrowsException<DivideByZeroException>(() => calculator.Dividy(x, y));
+        }
+
+        [TestMethod()]
         public void ModuloShouldReturnValidRemainderOfDivisionValue()
         {
             // Arrange

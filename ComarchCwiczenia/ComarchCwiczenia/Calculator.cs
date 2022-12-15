@@ -24,6 +24,9 @@ namespace ComarchCwiczenia
         }
         public float Dividy(int x, int y)
         {
+            if (y == 0)
+                throw new DivideByZeroException("Pamiętaj cholero, nie dziel przez 0!");
+
             return x / (float)y;
         }
 

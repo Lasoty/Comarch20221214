@@ -6,15 +6,7 @@ namespace ComarchCwiczenia
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Comarch Cwiczenia");
-
-            Console.WriteLine("MENU: ");
-            Console.WriteLine(" 1. Sortowanie");
-            Console.WriteLine(" 2. Dodawanie");
-            Console.WriteLine(" 3. Odejmowanie");
-            Console.WriteLine(" 4. Mnożenie");
-            Console.WriteLine(" 5. Dzielenie");
-            Console.WriteLine(" 6. Reszta z dzielenia");
+            ShowMenu();
 
             Console.Write("Twój wybór: ");
 
@@ -30,7 +22,7 @@ namespace ComarchCwiczenia
                         break;
                     case 2:
                         PobierzLiczby(out x, out y);
-                        Console.WriteLine($"Wynik dodawania {x} oraz {y} to {calc.Add(x , y) }");
+                        Console.WriteLine($"Wynik dodawania {x} oraz {y} to {calc.Add(x, y)}");
                         break;
                     case 3:
                         PobierzLiczby(out x, out y);
@@ -42,7 +34,14 @@ namespace ComarchCwiczenia
                         break;
                     case 5:
                         PobierzLiczby(out x, out y);
-                        Console.WriteLine($"Wynik dzielenia {x} oraz {y} to {calc.Dividy(x, y)}");
+                        try
+                        {
+                            Console.WriteLine($"Wynik dzielenia {x} oraz {y} to {calc.Dividy(x, y)}");
+                        }
+                        catch (Exception ex)
+                        {
+                            ShowError(ex.Message);
+                        }
                         break;
                     case 6:
                         PobierzLiczby(out x, out y);
@@ -57,6 +56,19 @@ namespace ComarchCwiczenia
             {
                 ShowError("Wprowadzona wartość jest nieprawidłowa.");
             }
+        }
+
+        private static void ShowMenu()
+        {
+            Console.WriteLine("Comarch Cwiczenia");
+
+            Console.WriteLine("MENU: ");
+            Console.WriteLine(" 1. Sortowanie");
+            Console.WriteLine(" 2. Dodawanie");
+            Console.WriteLine(" 3. Odejmowanie");
+            Console.WriteLine(" 4. Mnożenie");
+            Console.WriteLine(" 5. Dzielenie");
+            Console.WriteLine(" 6. Reszta z dzielenia");
         }
 
         private static void PobierzLiczby(out int x, out int y)
