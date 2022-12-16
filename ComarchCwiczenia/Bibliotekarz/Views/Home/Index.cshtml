@@ -15,6 +15,7 @@
         <th scope="col">Czy wypożyczona</th>
         <th scope="col">Imię wypożyczającego</th>
         <th scope="col">Nazwisko wypożyczającego</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
             <td>@(item.IsBorrowed ? "Tak" : "Nie")</td>
             <td>@item.Borrower?.FirstName</td>
             <td>@item.Borrower?.LastDescription</td>
+            <td><a asp-area="" asp-controller="Home" asp-action="Edit" asp-route-Id="@item.Id">Edycja</a></td>
           </tr>
         }
 
