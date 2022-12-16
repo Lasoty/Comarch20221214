@@ -11,6 +11,70 @@ namespace ComarchCwiczenia
 
         public void CwiczeniaNaObiektach()
         {
+            //Referencje();
+
+            //Dziedziczenie();
+
+            Interfejsy();
+        }
+
+        private void Interfejsy()
+        {
+            Bus bus = new Bus();
+            MetodaCoChceInterfejs(bus);
+        }
+
+        void MetodaCoChceInterfejs(IVehicle vehicle)
+        {
+            vehicle.TestMetodaZInterfejsu("Test");
+            vehicle.Marka = "Test";
+        }
+
+        #region Dziedziczenie i polimorfizm
+
+        private void Dziedziczenie()
+        {
+            Car car = new Car();
+            car.Pojemnosc = 2;
+            car.Marka = "Car";
+
+            Bus bus = new Bus();
+            bus.IloscOsi = 4;
+            bus.Marka = "Bus";
+
+            car.ShowFullInfo();
+            bus.ShowFullInfo();
+
+            Car car1 = new Bus()
+            {
+                IloscOsi = 3,
+                Marka = "Bus in Car",
+            };
+
+
+            car1.ShowFullInfo();
+
+            Bus bus1 = (Bus)car1;
+
+            TestForVehicle(car);
+            TestForVehicle(bus);
+            TestForVehicle(car1);
+
+            VehicleBase baseV = new Car();
+        }
+
+        public void TestForVehicle(VehicleBase vehicle)
+        {
+            vehicle.ShowFullInfo();
+        }
+        
+        #endregion
+
+        #region Referencje
+
+
+        private void Referencje()
+        {
             Car samochod = new Car();
             samochod.Marka = "Audi";
             samochod.Model = "A6 C6";
@@ -21,7 +85,6 @@ namespace ComarchCwiczenia
             JakasMetoda(samochod);
 
             Car sam2 = ZmienMarke(samochod);
-
         }
 
         private Car ZmienMarke(Car sam)
@@ -39,5 +102,7 @@ namespace ComarchCwiczenia
         {
             sam.Marka = "VW";
         }
+
+        #endregion
     }
 }
