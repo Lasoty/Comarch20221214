@@ -1,6 +1,9 @@
-﻿@{
+﻿@using Bibliotekarz.Data.Model;
+@{
     ViewData["Title"] = "Lista książek";
 }
+@model IndexViewModel
+
 
 <div class="row">
   <table class="table table-striped table-hover">
@@ -16,14 +19,18 @@
     </thead>
     <tbody>
 
-      <tr>
-        <td>Tytuł</td>
-        <td>Autor</td>
-        <td>Liczba stron</td>
-        <td>Czy wypożyczona</td>
-        <td>Imię wypożyczającego</td>
-        <td>Nazwisko wypożyczającego</td>
-      </tr>
+        @foreach (Book item in Model.Books)
+        {
+          <tr>
+            <td>@item.Title</td>
+            <td>@item.Autor</td>
+            <td>@item.PageCount</td>
+            <td>@(item.IsBorrowed ? "Tak" : "Nie")</td>
+            <td>@item.Borrower?.FirstName</td>
+            <td>@item.Borrower?.LastDescription</td>
+          </tr>
+        }
+
 
     </tbody>
   </table>

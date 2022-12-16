@@ -10,20 +10,27 @@ namespace Bibliotekarz.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext dbContext;
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext dbContext)
         {
             dbContext.Database.Migrate();
             _logger = logger;
+            this.dbContext = dbContext;
         }
 
         public IActionResult Index()
         {
-            Book book = new Book();
-            return View();
+            IndexViewModel vm = new IndexViewModel();
+            vm.Books = dbContext.Books
+                .OrderBy(x => x.Autor)
+                .ThenByDescending(x => x.Title)
+                .ToList();
+            
+            return View(vm);
         }
 
-        public IActionResult Privacy()
+         public IActionResult Privacy()
         {
             return View();
         }

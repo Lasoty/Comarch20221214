@@ -20,6 +20,6 @@ namespace Bibliotekarz.Data.Model
 
         public bool IsRemoved { get; set; }
 
-        public Customer Borrower { get; set; }
+        public Customer? Borrower { get; set; }
     }
 }
